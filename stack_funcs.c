@@ -42,3 +42,14 @@ void push_front(stack_t **head, stack_t *new_node)
 	(*head)->prev = new_node;
 	*head = new_node;
 }
+
+/**
+ * is_empty_stack - Checks if a stack_t list is empty.
+ * @stack: A pointer to the head of the stack_t list.
+ *
+ * Return: 1 if the stack_t list is empty, otherwise 0.
+*/
+bool is_empty_stack(stack_t *stack)
+{
+	return (stack == NULL);
+}

@@ -10,10 +10,11 @@
 void (*get_opcode_func(char *opcode))(stack_t **, unsigned int)
 {
 	instruction_t monty_instructions[] = {
-		{"push", push},
-		{"pall", pall},
 		{"", empty_instruction},
 		{"#", comment_instruction},
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}};
 	int i;
 

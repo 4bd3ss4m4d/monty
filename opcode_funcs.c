@@ -36,7 +36,7 @@ void comment_instruction(stack_t **stack, unsigned int line_number)
  *
  * Return: void
 */
-void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = create_node();
 
@@ -59,6 +59,8 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	new_node->n = atoi(monty_line->argument);
 
 	push_front(stack, new_node);
+
+	(void)line_number;
 }
 
 /**
@@ -69,7 +71,7 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
  *
  * Return: void
 */
-void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
@@ -78,4 +80,27 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		printf("%i\n", current->n);
 		current = current->next;
 	}
+
+	(void)line_number;
+}
+
+/**
+ * pint - Prints the value at the top of the stack, followed by a new line.
+ * @stack: The stack.
+ * @line_number: The line number.
+ *
+ * Return: void
+*/
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (is_empty_stack(*stack))
+	{
+		pint_empty_stack_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	printf("%i\n", (*stack)->n);
+
+	(void)line_number;
 }

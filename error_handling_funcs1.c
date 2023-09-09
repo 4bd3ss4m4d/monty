@@ -58,3 +58,4 @@ void push_arg_error(void)
 {
 	fprintf(stderr, "L%u: usage: push integer\n", monty_line->line_number);
 }
+

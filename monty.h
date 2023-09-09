@@ -70,6 +70,7 @@ int file_open_error(char *filename);
 void malloc_error(void);
 void invalid_opc_error(void);
 void push_arg_error(void);
+void pint_empty_stack_error(void);
 
 /* Interpreter Funcs */
 int run_interpreter(FILE *monty_file);
@@ -83,7 +84,6 @@ void strtrim(char *str);
 int str_is_empty(char *line);
 bool _isint(char *str);
 
-
 /* Get Opcodes Funcs */
 void (*get_opcode_func(char *opcode))(stack_t **, unsigned int);
 
@@ -92,9 +92,11 @@ void empty_instruction(stack_t **stack, unsigned int line_number);
 void comment_instruction(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 /* Stack Funcs */
 stack_t *create_node(void);
 void push_front(stack_t **head, stack_t *new_node);
+bool is_empty_stack(stack_t *stack);
 
 #endif /* MONTY_H */
