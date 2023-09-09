@@ -53,3 +53,23 @@ bool is_empty_stack(stack_t *stack)
 {
 	return (stack == NULL);
 }
+
+/**
+ * pop_front - Removes the first node of a stack_t list.
+ * @head: A pointer to the head of the stack_t list.
+ *
+ * Return: void
+*/
+void pop_front(stack_t **head)
+{
+	stack_t *temp;
+
+	if (is_empty_stack(*head))
+	{
+		return;
+	}
+
+	temp = *head;
+	*head = (*head)->next;
+	free(temp);
+}
