@@ -55,3 +55,25 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 }
+
+/**
+ * add - adds the top two elements of the stack
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number of the opcode in the file
+ *
+ * Return: void
+*/
+void add(stack_t **stack, unsigned int line_number)
+{
+	/* Check if the 1st and 2nd Node are NULL */
+	if ((*stack) == NULL || (*stack)->next == NULL)
+	{
+		add_short_stack_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	(*stack)->next->n = (*stack)->n + (*stack)->next->n;
+
+	pop(stack, line_number);
+}

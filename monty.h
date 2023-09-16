@@ -73,6 +73,7 @@ void push_arg_error(void);
 void pint_empty_stack_error(void);
 void pop_empty_stack_error(void);
 void swap_short_stack_error(void);
+void add_short_stack_error(void);
 
 /* Interpreter Funcs */
 int run_interpreter(FILE *monty_file);
@@ -97,6 +98,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 /* Stack Funcs */
 stack_t *create_node(void);

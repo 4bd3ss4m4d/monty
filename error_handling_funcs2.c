@@ -35,3 +35,15 @@ void swap_short_stack_error(void)
 	fprintf(stderr, "L%u: can't swap, stack too short\n",
 		monty_line->line_number);
 }
+
+/**
+ * add_short_stack_error - Prints an error message when add is called on a
+ *                         stack with less than two elements
+ *
+ * Return: void
+*/
+void add_short_stack_error(void)
+{
+	fprintf(stderr, "L%u: can't add, stack too short\n",
+		monty_line->line_number);
+}
