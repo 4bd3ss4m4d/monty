@@ -34,8 +34,7 @@ void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
-	/* Check if the 1st and 2nd Node are NULL */
-	if ((*stack) == NULL || (*stack)->next == NULL)
+	if (stack_with_less_than_two_elements(*stack))
 	{
 		swap_short_stack_error();
 		monty_line->status = EXIT_FAILURE;
@@ -65,8 +64,7 @@ void swap(stack_t **stack, unsigned int line_number)
 */
 void add(stack_t **stack, unsigned int line_number)
 {
-	/* Check if the 1st and 2nd Node are NULL */
-	if ((*stack) == NULL || (*stack)->next == NULL)
+	if (stack_with_less_than_two_elements(*stack))
 	{
 		add_short_stack_error();
 		monty_line->status = EXIT_FAILURE;
@@ -89,4 +87,26 @@ void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+}
+
+/**
+ * sub - subtracts the top element of the stack from the second top element of
+ *       the stack
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number of the opcode in the file
+ *
+ * Return: void
+*/
+void sub(stack_t **stack, unsigned int line_number)
+{
+	if (stack_with_less_than_two_elements(*stack))
+	{
+		sub_short_stack_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
+
+	pop(stack, line_number);
 }

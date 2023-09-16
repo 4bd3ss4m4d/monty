@@ -47,3 +47,16 @@ void add_short_stack_error(void)
 	fprintf(stderr, "L%u: can't add, stack too short\n",
 		monty_line->line_number);
 }
+
+/**
+ * sub_short_stack_error - Prints an error message when sub is called on a
+ *                         stack with less than two elements
+ *
+ * Return: void
+*/
+void sub_short_stack_error(void)
+{
+	fprintf(stderr, "L%u: can't sub, stack too short\n",
+		monty_line->line_number);
+}
+

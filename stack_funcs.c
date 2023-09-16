@@ -73,3 +73,15 @@ void pop_front(stack_t **head)
 	*head = (*head)->next;
 	free(temp);
 }
+
+/**
+ * stack_with_less_than_two_elements - Checks if a stack_t list has less than
+ * two elements.
+ * @stack: A pointer to the head of the stack_t list.
+ *
+ * Return: 1 if the stack_t list has less than two elements, otherwise 0.
+*/
+bool stack_with_less_than_two_elements(stack_t *stack)
+{
+	return (stack == NULL || stack->next == NULL);
+}

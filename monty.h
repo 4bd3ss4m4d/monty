@@ -74,7 +74,7 @@ void pint_empty_stack_error(void);
 void pop_empty_stack_error(void);
 void swap_short_stack_error(void);
 void add_short_stack_error(void);
-void nop(stack_t **stack, unsigned int line_number);
+void sub_short_stack_error(void);
 
 /* Interpreter Funcs */
 int run_interpreter(FILE *monty_file);
@@ -100,11 +100,14 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 
 /* Stack Funcs */
 stack_t *create_node(void);
 void push_front(stack_t **head, stack_t *new_node);
 bool is_empty_stack(stack_t *stack);
 void pop_front(stack_t **head);
+bool stack_with_less_than_two_elements(stack_t *stack);
 
 #endif /* MONTY_H */
