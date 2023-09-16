@@ -74,6 +74,7 @@ void pint_empty_stack_error(void);
 void pop_empty_stack_error(void);
 void swap_short_stack_error(void);
 void add_short_stack_error(void);
+void nop(stack_t **stack, unsigned int line_number);
 
 /* Interpreter Funcs */
 int run_interpreter(FILE *monty_file);
