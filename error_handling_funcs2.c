@@ -23,3 +23,15 @@ void pop_empty_stack_error(void)
 {
 	fprintf(stderr, "L%u: can't pop an empty stack\n", monty_line->line_number);
 }
+
+/**
+ * swap_short_stack_error - Prints an error message when swap is called on a
+ *                          stack with less than two elements
+ *
+ * Return: void
+*/
+void swap_short_stack_error(void)
+{
+	fprintf(stderr, "L%u: can't swap, stack too short\n",
+		monty_line->line_number);
+}
