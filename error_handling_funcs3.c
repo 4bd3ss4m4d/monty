@@ -35,3 +35,15 @@ void mul_short_stack_error(void)
 	fprintf(stderr, "L%u: can't mul, stack too short\n",
 		monty_line->line_number);
 }
+
+/**
+ * mod_short_stack_error - prints error message when stack is too short
+ * to perform mod
+ *
+ * Return: void
+*/
+void mod_short_stack_error(void)
+{
+	fprintf(stderr, "L%u: can't mod, stack too short\n",
+		monty_line->line_number);
+}

@@ -50,3 +50,31 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	pop(stack, line_number);
 }
+
+/**
+ * mod - computes the modulus of the top two elements of the stack
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number of the opcode in the file
+ *
+ * Return: void
+*/
+void mod(stack_t **stack, unsigned int line_number)
+{
+	if (stack_with_less_than_two_elements(*stack))
+	{
+		mod_short_stack_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	if ((*stack)->n == 0)
+	{
+		division_by_zero_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	(*stack)->next->n %= (*stack)->n;
+
+	pop(stack, line_number);
+}
