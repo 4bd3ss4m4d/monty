@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 /**
- * pop - removes the top element of the stack
+ * divide - divides the top two elements of the stack
  * @stack: double pointer to the head of the stack
  * @line_number: the line number of the opcode in the file
  *
  * Return: void
- */
+*/
 void divide(stack_t **stack, unsigned int line_number)
 {
 	if (stack_with_less_than_two_elements(*stack))
@@ -26,6 +26,27 @@ void divide(stack_t **stack, unsigned int line_number)
 	}
 
 	(*stack)->next->n /= (*stack)->n;
+
+	pop(stack, line_number);
+}
+
+/**
+ * mul - multiplies the top two elements of the stack
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number of the opcode in the file
+ *
+ * Return: void
+*/
+void mul(stack_t **stack, unsigned int line_number)
+{
+	if (stack_with_less_than_two_elements(*stack))
+	{
+		mul_short_stack_error();
+		monty_line->status = EXIT_FAILURE;
+		return;
+	}
+
+	(*stack)->next->n *= (*stack)->n;
 
 	pop(stack, line_number);
 }

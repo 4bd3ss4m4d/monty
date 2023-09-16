@@ -77,6 +77,7 @@ void add_short_stack_error(void);
 void sub_short_stack_error(void);
 void div_short_stack_error(void);
 void division_by_zero_error(void);
+void mul_short_stack_error(void);
 
 /* Interpreter Funcs */
 int run_interpreter(FILE *monty_file);
@@ -105,6 +106,7 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
 /* Stack Funcs */
 stack_t *create_node(void);
