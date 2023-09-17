@@ -34,3 +34,35 @@ void rotl(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 }
+
+/**
+ * rotr - rotates the stack to the bottom
+ * @stack: double pointer to the head of the stack
+ * @line_number: the line number of the opcode in the file
+ *
+ * Return: void
+*/
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last = *stack;
+
+	if (stack_with_less_than_two_elements(*stack))
+	{
+		return;
+	}
+
+	while (last->next != NULL)
+	{
+		last = last->next;
+	}
+
+	last->prev->next = NULL;
+
+	last->prev = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+
+	(*stack) = last;
+
+	(void)line_number;
+}

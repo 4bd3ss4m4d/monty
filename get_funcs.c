@@ -1,4 +1,4 @@
-	#include "monty.h"
+#include "monty.h"
 #include <string.h>
 
 /**
@@ -26,6 +26,7 @@ void (*get_opcode_func(char *opcode))(stack_t **, unsigned int)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}};
 	int i;
 
