@@ -47,3 +47,15 @@ void mod_short_stack_error(void)
 	fprintf(stderr, "L%u: can't mod, stack too short\n",
 		monty_line->line_number);
 }
+
+/**
+ * pchar_empty_stack_error - prints error message when stack is empty
+ * to perform pchar
+ *
+ * Return: void
+*/
+void pchar_empty_stack_error(void)
+{
+	fprintf(stderr, "L%u: can't pchar, stack empty\n",
+		monty_line->line_number);
+}
