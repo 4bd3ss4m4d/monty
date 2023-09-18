@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/4bd3ss4m4d/monty/blob/main/media/FIFO%20LIFO.png" alt="FIFO LIFO Image">
-</p>
-
 <h1 align="center">Stacks, Queues - LIFO, FIFO</h1>
 <p align="center">ALX Africa</p>
 
