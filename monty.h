@@ -1,6 +1,9 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define STACK 0
+#define QUEUE 1
+
 /* Include Libraries */
 #include <stdbool.h>
 #include <stdio.h>
@@ -41,6 +44,7 @@ typedef struct instruction_s
  * @command: the opcode command
  * @argument: the argument for the command
  * @status: the status of the command (1 if success, 0 if failure)
+ * @mode: the mode of the monty file (stack or queue)
  *
  * Description: struct for monty file line. It holds monty line context
  *             information.
@@ -51,13 +55,14 @@ typedef struct monty_line_s
 	char *command;
 	char *argument;
 	int status;
+	int mode;
 } monty_line_t;
 
 /* Declare External Variable */
 extern monty_line_t *monty_line;
 
 /* Parse Funcs */
-int init_monty_line(void);
+int init_monty_line(int mode);
 void parse_line(char *line);
 void tokenize(char *line);
 
@@ -115,6 +120,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 /* Stack Funcs */
 stack_t *create_node(void);
@@ -122,5 +129,8 @@ void push_front(stack_t **head, stack_t *new_node);
 bool is_empty_stack(stack_t *stack);
 void pop_front(stack_t **head);
 bool stack_with_less_than_two_elements(stack_t *stack);
+
+/* Queue Funcs */
+void push_rear(stack_t **head, stack_t *new_node);
 
 #endif /* MONTY_H */

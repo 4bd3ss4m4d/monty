@@ -4,10 +4,11 @@
 
 /**
  * init_monty_line - Initializes a monty_line_t instance
+ * @mode: The mode of the monty_line_t instance
  *
  * Return: 1 if success, 0 if failure
 */
-int init_monty_line(void)
+int init_monty_line(int mode)
 {
 	/* Allocate memory to monty_line instance */
 	monty_line = malloc(sizeof(monty_line_t));
@@ -21,6 +22,7 @@ int init_monty_line(void)
 	monty_line->command = NULL;
 	monty_line->argument = NULL;
 	monty_line->status = EXIT_SUCCESS;
+	monty_line->mode = mode;
 
 	return (1);
 }

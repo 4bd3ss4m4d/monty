@@ -58,7 +58,14 @@ void push(stack_t **stack, unsigned int line_number)
 
 	new_node->n = atoi(monty_line->argument);
 
-	push_front(stack, new_node);
+	if (monty_line->mode == STACK)
+	{
+		push_front(stack, new_node);
+	}
+	else if (monty_line->mode == QUEUE)
+	{
+		push_rear(stack, new_node);
+	}
 
 	(void)line_number;
 }
